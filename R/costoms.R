@@ -4,6 +4,7 @@
 #' @keywords Add
 #' @export
 #' @import xml2
+#' @import dplyr
 #' @importFrom tibble tibble
 #' @importFrom magrittr %>%
 #' @importFrom tidyr spread
