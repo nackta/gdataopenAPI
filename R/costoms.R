@@ -4,9 +4,9 @@
 #' @param a ,b : two numbers to be operated
 #' @keywords Add
 #' @export
+#' @import tibble
+#' @import xml2
 #' @examples
-#' @importFrom tibble
-#' @importFrom xml2
 #' expimp_data()
 
 
