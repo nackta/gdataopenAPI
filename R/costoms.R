@@ -5,8 +5,8 @@
 #' @keywords Add
 #' @export
 #' @examples
-#' @importFrom tidyverse tidyverse
-#' @importFrom xml2 xml2
+#' @importFrom tibble tibble
+#' @importFrom xml2
 #' expimp_data()
 
 
