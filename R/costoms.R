@@ -3,9 +3,8 @@
 #' @param a ,b : two numbers to be operated
 #' @keywords Add
 #' @export
+#' @import xml2
 #' @importFrom tibble tibble
-#' @importFrom xml2 read_xml
-#' @importFrom xml2 xml_children
 #' @importFrom magrittr %>%
 #' @importFrom tidyr spread
 
