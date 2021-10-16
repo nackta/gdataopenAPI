@@ -17,4 +17,8 @@ RoxygenNote: 7.1.1
 Imports: 
     xml2,
     rvest,
-    tibble
+    tibble,
+    dplyr, 
+    magrittr,
+    tidyr
+    
