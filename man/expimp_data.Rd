@@ -2,7 +2,7 @@
 % Please edit documentation in R/costoms.R
 \name{expimp_data}
 \alias{expimp_data}
-\title{expimp_data() Function}
+\title{expimp_data}
 \usage{
 expimp_data(ServiceKey, startpoint, endpoint, hscode, country)
 }
@@ -10,9 +10,6 @@ expimp_data(ServiceKey, startpoint, endpoint, hscode, country)
 \item{a}{,b : two numbers to be operated}
 }
 \description{
-This function adds a and b
-}
-\examples{
-expimp_data()
+expimp_data
 }
 \keyword{Add}
