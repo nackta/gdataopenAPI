@@ -3,9 +3,10 @@
 #' @param a ,b : two numbers to be operated
 #' @keywords Add
 #' @export
-#' @importFrom xml2 read_xml
-#' @importFrom xml2 xml_children
-#' @import tibble
+#' @importFrom rvest html_nodes
+#' @importFrom rvest html_text
+#' @importFrom xml2 read_html
+#' @importFrom tibble tibble
 
 expimp_data <- function(ServiceKey, startpoint, endpoint, hscode, country){
     url <- paste0("http://openapi.customs.go.kr/openapi/service/newTradestatistics/getNitemtradeList?ServiceKey=", ServiceKey,
