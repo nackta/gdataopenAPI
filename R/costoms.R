@@ -5,7 +5,7 @@
 #' @keywords Add
 #' @export
 #' @examples
-#' @importFrom tibble tibble
+#' @importFrom tibble
 #' @importFrom xml2
 #' expimp_data()
 
