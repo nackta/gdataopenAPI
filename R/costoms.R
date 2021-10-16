@@ -1,14 +1,11 @@
-#' expimp_data() Function
+#' expimp_data
 #'
-#' This function adds a and b
 #' @param a ,b : two numbers to be operated
 #' @keywords Add
 #' @export
+#' @importFrom xml2 read_xml
+#' @importFrom xml2 xml_children
 #' @import tibble
-#' @import xml2
-#' @examples
-#' expimp_data()
-
 
 expimp_data <- function(ServiceKey, startpoint, endpoint, hscode, country){
     url <- paste0("http://openapi.customs.go.kr/openapi/service/newTradestatistics/getNitemtradeList?ServiceKey=", ServiceKey,
