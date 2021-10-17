@@ -1,7 +1,16 @@
-#' expimp_data
+#' getNitemtradeList
 #'
-#' @param a ,b : two numbers to be operated
-#' @keywords Add
+#' \code{getNitemtradeList} returns Import/Export Performance by Item and Country.
+#'
+#' This function return Import/Export Performance by Item and Country.
+#'
+#' @param ServiceKey your service key.
+#' @param startpoint year,month. character
+#' @param endpoint year,month. character
+#' @param hscode 4-digit hscode. character
+#' @param country country code.
+#' @examples
+#' getNitemtradeList('yourservicekey', '202001', '202012', '3304', 'US')
 #' @export
 #' @import xml2
 #' @import dplyr
@@ -10,7 +19,7 @@
 #' @importFrom tidyr spread
 
 
-expimp_data <- function(ServiceKey, startpoint, endpoint, hscode, country){
+getNitemtradeList <- function(ServiceKey, startpoint, endpoint, hscode, country){
     url <- paste0("http://openapi.customs.go.kr/openapi/service/newTradestatistics/getNitemtradeList?ServiceKey=", ServiceKey,
                   "&searchBgnDe=", startpoint,
                   "&searchEndDe=", endpoint,
