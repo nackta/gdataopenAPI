@@ -40,8 +40,11 @@ library(gdataopenAPI)
 getNitemtradeList(ServiceKey='yourkey', startpoint='202001', endpoint='202012', hscode='3304', country='US')
 ```
 
-```{r echo=FALSE}
-tibble::tibble(read.csv('./data/ex_getNitemtradeList.csv'))[,-1]
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(knitr)
+library(dplyr)
+kable(read.csv('./data/ex_getNitemtradeList.csv') %>% head(2))
+#tibble::tibble(read.csv('./data/ex_getNitemtradeList.csv')) %>% head()
 ```
 
 각 변수에 대한 설명은 [공공데이터 포털](https://www.data.go.kr/index.do)을 확인해주세요.
