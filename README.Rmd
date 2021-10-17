@@ -1,0 +1,47 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# gdataopenAPI
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+공공데이터에서 제공하는 openAPI를 더 쉽게 사용하기 위한 패키지입니다.
+
+## 패키지설치 및 로딩
+
+```{r eval=FALSE}
+# packages loading
+remotes::install_github("nackta/gdataopenAPI")
+```
+
+```{r}
+library(gdataopenAPI)
+```
+
+
+## 지원중인 openAPI목록
+
+### 1. 관세청 품목별 국가별 수출입실적
+
+```{r eval=FALSE}
+getNitemtradeList(ServiceKey='yourkey', startpoint='202001', endpoint='202012', hscode='3304', country='US')
+```
+
+```{r echo=FALSE}
+tibble::tibble(read.csv('./data/ex_getNitemtradeList.csv'))[,-1]
+```
+
+각 변수에 대한 설명은 [공공데이터 포털](https://www.data.go.kr/index.do)을 확인해주세요.
