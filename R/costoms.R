@@ -5,7 +5,10 @@
 #' @param endpoint year,month. character
 #' @param hscode 4-digit hscode. character
 #' @param country country code.
-#'
+#' @import xml2
+#' @import dplyr
+#' @importFrom tibble tibble
+#' @importFrom tidyr spread
 one_getNitemtradeList <- function(ServiceKey, startpoint, endpoint, hscode, country){
     url <- paste0("http://openapi.customs.go.kr/openapi/service/newTradestatistics/getNitemtradeList?ServiceKey=", ServiceKey,
                   "&searchBgnDe=", startpoint,
@@ -25,7 +28,6 @@ one_getNitemtradeList <- function(ServiceKey, startpoint, endpoint, hscode, coun
     tmp2 <- bind_rows(tmp1)
     spread(tmp2,key,value) %>% return()
 }
-
 
 #' getNitemtradeList
 #'
@@ -66,4 +68,3 @@ getNitemtradeList <- function(ServiceKey, startpoint='202001', endpoint='202012'
     }
     return(data)
 }
-
