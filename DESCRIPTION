@@ -16,9 +16,8 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Imports: 
     xml2,
-    rvest,
     tibble,
     dplyr, 
-    magrittr,
-    tidyr
+    tidyr,
+    lubridate
     

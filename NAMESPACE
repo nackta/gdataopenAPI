@@ -3,6 +3,6 @@
 export(getNitemtradeList)
 import(dplyr)
 import(xml2)
-importFrom(magrittr,"%>%")
+importFrom(lubridate,ymd)
 importFrom(tibble,tibble)
 importFrom(tidyr,spread)

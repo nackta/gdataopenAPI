@@ -4,7 +4,13 @@
 \alias{getNitemtradeList}
 \title{getNitemtradeList}
 \usage{
-getNitemtradeList(ServiceKey, startpoint, endpoint, hscode, country)
+getNitemtradeList(
+  ServiceKey,
+  startpoint = "202001",
+  endpoint = "202012",
+  hscode = "3304",
+  country = "US"
+)
 }
 \arguments{
 \item{ServiceKey}{your service key.}
