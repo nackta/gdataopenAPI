@@ -26,7 +26,7 @@ one_getNitemtradeList <- function(ServiceKey, startpoint, endpoint, hscode, coun
                    }
     )
     tmp2 <- bind_rows(tmp1)
-    spread(tmp2,key,value) %>% return()
+    spread(tmp2, key = 'key', value = 'value') %>% return()
 }
 
 #' getNitemtradeList
@@ -49,21 +49,32 @@ one_getNitemtradeList <- function(ServiceKey, startpoint, endpoint, hscode, coun
 #' @importFrom lubridate ymd
 #' @export
 getNitemtradeList <- function(ServiceKey, startpoint='202001', endpoint='202012', hscode='3304', country='US'){
+
     startmonth <- seq(from = ymd(paste0(startpoint, "01")),
                       to = ymd(paste0(endpoint, "01")),
                       by = '1 month')
     startmonth <- format(startmonth, '%Y%m')
     data <- tibble()
-    for(i in 0:(length(startmonth)%/%12)){
-        if(i == (length(startmonth)%/%12)){
-            tmpdata <- one_getNitemtradeList(ServiceKey=ServiceKey, startpoint=startmonth[1+12*i], endpoint=tail(startmonth, n=1), hscode=hscode, country=country)
-            tmpdata <- tmpdata[1:(nrow(tmpdata)-1),]
-            data <- bind_rows(data, tmpdata)
-        }
-        else{
+
+    if(length(startmonth)%%12==0){
+
+        for(i in 0:(length(startmonth)%/%12-1)){
             tmpdata <- one_getNitemtradeList(ServiceKey=ServiceKey, startpoint=startmonth[1+12*i], endpoint=startmonth[12+12*i], hscode=hscode, country=country)
             tmpdata <- tmpdata[1:(nrow(tmpdata)-1),]
             data <- bind_rows(data, tmpdata)
+        }
+
+    }else{
+        for(i in 0:(length(startmonth)%/%12)){
+            if(i == (length(startmonth)%/%12)){
+                tmpdata <- one_getNitemtradeList(ServiceKey=ServiceKey, startpoint=startmonth[1+12*i], endpoint=tail(startmonth, n=1), hscode=hscode, country=country)
+                tmpdata <- tmpdata[1:(nrow(tmpdata)-1),]
+                data <- bind_rows(data, tmpdata)
+            }else{
+                tmpdata <- one_getNitemtradeList(ServiceKey=ServiceKey, startpoint=startmonth[1+12*i], endpoint=startmonth[12+12*i], hscode=hscode, country=country)
+                tmpdata <- tmpdata[1:(nrow(tmpdata)-1),]
+                data <- bind_rows(data, tmpdata)
+            }
         }
     }
     return(data)
